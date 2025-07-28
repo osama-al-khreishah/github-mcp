@@ -33,7 +33,7 @@ You can perform the following operations on your GitHub repositories by typing s
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/osama-al-khreishah/github-mcp
+   git clone https://github.com/osama-al-khreishah/github-mcp.git
    cd github-mcp
 2. **Install Dependencies**
    ```bash
