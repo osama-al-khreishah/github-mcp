@@ -1,4 +1,4 @@
-#!/home/osama/llm_mcp/venv/bin/python3
+#!/home/osama/github-mcp/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

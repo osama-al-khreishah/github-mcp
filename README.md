@@ -10,7 +10,7 @@ You can perform the following operations on your GitHub repositories by typing s
 
 | Operation           | Description                                     | Example Prompt |
 |---------------------|-------------------------------------------------|----------------|
-| Create Repository    | Create a public/private repo with optional README | Create a private repo named `test_repo` with README |
+| Create Repository    | Create a public/private repo with optional README | Create a repo named `test_repo` with README |
 | Create Issue         | Open a new issue in a specific repo             | Create issue in `osama-al-khreishah/circa_game` called `Bug` with body `Fix the error` |
 | List Issues          | List all open issues in a repository            | List issues in repo `osama-al-khreishah/circa_game` |
 | Close Issue          | Close a specific issue by number                | Close issues in repo `osama-al-khreishah/circa_game` #2 |
@@ -44,7 +44,7 @@ You can perform the following operations on your GitHub repositories by typing s
    GITHUB_TOKEN=your_personal_access_token
 4. **Run the MCP Server**
    ```bash
-   uvicorn main:app --reload
+   uvicorn mcp_server:app --reload
 5. **Run the LLM Client**
    ```bash
    In another terminal:
