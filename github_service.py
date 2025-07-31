@@ -40,7 +40,37 @@ def create_issue(repo,title,body=""):
     response = requests.post(url, headers=headers, json=data)
     return response.json()
 
-# function to make pull request
+# Function to list issues in a repository
+def list_issues(repo):
+    url = f"{GITHUB_API_URL}/repos/{repo}/issues"
+    response = requests.get(url, headers=headers)
+    
+    if response.status_code == 200:
+        issues = response.json()
+        return {
+            "status": "success",
+            "issues": [
+                {"title": issue["title"], "number": issue["number"], "state": issue["state"]}
+                for issue in issues
+            ]
+        }
+    else:
+        return {
+            "status": "error",
+            "message": response.text,
+            "code": response.status_code
+        }
+    # Function to close an issue
+def close_issue(repo, issue_number):
+    url = f"{GITHUB_API_URL}/repos/{repo}/issues/{issue_number}"
+    data = {"state": "closed"}
+    response = requests.patch(url, headers=headers, json=data)
+    if response.status_code == 200:
+        return {"status": "success", "message": f"Issue #{issue_number} closed successfully."}
+    else:
+        return {"status": "error", "message": response.text, "code": response.status_code}
+
+    # function to make pull request
 def create_pull_request(repo: str, title: str, body: str, head: str, base: str ):
     url = f"{GITHUB_API_URL}/repos/{repo}/pulls"
     payload = {

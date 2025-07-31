@@ -13,11 +13,11 @@ You can perform the following operations on your GitHub repositories by typing s
 | Create Repository    | Create a public/private repo with optional README | Create a repo named `test_repo` with README |
 | Create Issue         | Open a new issue in a specific repo             | Create issue in `osama-al-khreishah/circa_game` called `Bug` with body `Fix the error` |
 | List Issues          | List all open issues in a repository            | List issues in repo `osama-al-khreishah/circa_game` |
-| Close Issue          | Close a specific issue by number                | Close issues in repo `osama-al-khreishah/circa_game` #2 |
+| Close Issue          | Close a specific issue by number                | Close issue in `osama-al-khreishah/circa_game` number 1 |
 | Create Pull Request  | Make a PR between branches                      | Create a pull request titled `"Add tests"` from `dev` to `main` in `osama-al-khreishah/circa_game` |
 | Create Branch        | Create a new branch in a repository             | Create a branch called `feature-x` in `osama-al-khreishah/circa_game` |
 | Delete Branch        | Delete a branch from a repository               | Delete the branch `feature-x` from `osama-al-khreishah/circa_game` |
-| View Analytics       | Show traffic and clone stats                    | Show me analytics for `osama-al-khreishah/circa_game` |
+| View Analytics       | Show traffic and clone stats                    | Show me analytics in `osama-al-khreishah/circa_game` |
 | View Collaborators   | List users who have access to a repo            | Who has access to `osama-al-khreishah/circa_game` |
 
 ---

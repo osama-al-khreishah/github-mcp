@@ -13,6 +13,13 @@ def parse_prompt(prompt: str) -> dict:
 # Extract the repository name from the prompt
 
        words = prompt.split()
+               
+       if "named" in words:
+            idx = words.index("named")
+       elif "called" in words:
+            idx = words.index("called")
+       else:
+            raise ValueError("'named' or 'called' not found in prompt.")
        if "named" or "name" in words:
            idx = words.index("named")
            if idx + 1 < len(words):
@@ -37,10 +44,16 @@ def parse_prompt(prompt: str) -> dict:
    
 # close issue
    
-   elif "close" in prompt and "issues" in prompt:
-        repo = extract_after(prompt,"repo ")
+   elif "close issue" in prompt:
+    repo = extract_between(prompt, "in ", " number") or extract_after(prompt, "in ")
+    if "#" in prompt:
         issue_number = int(prompt.split("#")[-1].strip())
-        return {"operation": "close_issue", "repo": repo.strip(), "issue_number": issue_number}
+    elif "number" in prompt:
+        issue_number = int(prompt.split("number")[-1].strip())
+    else:
+        issue_number = None
+    return {"operation": "close_issue", "repo": repo.strip(), "issue_number": issue_number}
+
    #--- --- --- --- --- --- --- --- ---
 # Create Pull Request
    elif "pull request" in prompt or "pr" in prompt:

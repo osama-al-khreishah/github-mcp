@@ -21,6 +21,12 @@ async def handle_github_command(request: Request):
         body = data.get("body","")
         return {"status":"success", "Result": create_issue(repo,title,body)}
     # --- --- --- --- --- --- --- ---
+    elif operation == "list_issues":
+     return list_issues(data["repo"])
+    # --- --- --- --- --- --- --- ---
+    elif operation == "close_issue":
+     return close_issue(data["repo"], data["issue_number"])
+    # --- --- --- --- --- --- --- ---
     elif operation == "create_pull_request":
         repo = data.get("repo")
         title = data.get("title")
